@@ -115,9 +115,49 @@ SINGH Manveer 5IABD2
 ### Create a named volume
 
 1. Create a volume named : `couchdb_vol`
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker volume create couchdb_vol
+    couchdb_vol
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 2. Run `couchedb` with the created volume
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker container run --name couchdb -d -p 5984:5984 -v couchdb_vol couchdb
+    270f6c32de3e1071a4066087c1d5a08d73594a0efb7976e9d1371250ec5f2ad0
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 3. Inspect the container and look at `Mounts` that `couchdb_vol` is used
-
+   ```
+   (base) smveer@Manveers-MacBook-Pro ~ % docker container inspect couchdb
+   ...
+   
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Name": "8075ed3ad1e1a66252e037d4c1ce47469ffdcad35a8d91b7a8d7377831bc8032",
+                    "Source": "/var/lib/docker/volumes/8075ed3ad1e1a66252e037d4c1ce47469ffdcad35a8d91b7a8d7377831bc8032/_data",
+                    "Destination": "couchdb_vol",
+                    "Driver": "local",
+                    "Mode": "",
+                    "RW": true,
+                    "Propagation": ""
+                },
+                {
+                    "Type": "volume",
+                    "Name": "f7c02951c1fa8cb828a5d1720dd35fc7f83fba0294a5222e31f1570b94993c70",
+                    "Source": "/var/lib/docker/volumes/f7c02951c1fa8cb828a5d1720dd35fc7f83fba0294a5222e31f1570b94993c70/_data",
+                    "Destination": "/opt/couchdb/data",
+                    "Driver": "local",
+                    "Mode": "",
+                    "RW": true,
+                    "Propagation": ""
+                }
+            ],
+   
+   ...
+    (base) smveer@Manveers-MacBook-Pro ~ %
+   ```
+   
 ### Mount directory
 
 1. Mount `/var/lib/docker` from host to `/dck` into a busybox container 

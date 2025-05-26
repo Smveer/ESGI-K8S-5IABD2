@@ -79,7 +79,6 @@ docs/test.html
 .idea
 
 # Cours
-Docker - slides*
 terraform/*
 labs/20*
 labs/30*

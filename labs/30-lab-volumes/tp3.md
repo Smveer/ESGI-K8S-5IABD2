@@ -81,7 +81,13 @@ SINGH Manveer 5IABD2
     (base) smveer@Manveers-MacBook-Pro ~ %
     ```
 
-4. Mount the identified volume to busybox 
+4. Mount the identified volume to busybox
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker run -ti --name busybusy -v df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922:/dsk busybox
+    / # cd dsk/
+    /dsk # ls
+    /dsk #
+    ```
 5. Check files inside `/opt/couchdb/data`
 6. Stop couchdb
 7. Delete the volume

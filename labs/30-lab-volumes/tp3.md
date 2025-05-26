@@ -7,6 +7,8 @@ SINGH Manveer 5IABD2
 1. run `docker container run --name couchdb -d -p 5984:5984 couchdb:2.1`
     ```
     I used couchdb:lastest instead of 2.1 because i couldn't pull the 2.1
+
+    (base) smveer@Manveers-MacBook-Pro ~ % docker image pull couchdb
     ```
 2. Check existing volumes
     ```

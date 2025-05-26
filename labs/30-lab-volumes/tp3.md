@@ -6,9 +6,29 @@ SINGH Manveer 5IABD2
 
 1. run `docker container run --name couchdb -d -p 5984:5984 couchdb:2.1`
     ```
-    I used couchdb:lastest instead of 2.1 because i couldn't pull the 2.1
-
     (base) smveer@Manveers-MacBook-Pro ~ % docker image pull couchdb
+    Using default tag: latest
+    latest: Pulling from library/couchdb
+    b16f1b166780: Already exists 
+    40594f806b01: Pull complete 
+    2d4c056b6f9a: Pull complete 
+    6fad9e8774e7: Pull complete 
+    39b8dea16374: Pull complete 
+    d005391fd3b6: Pull complete 
+    94823bd70f7b: Pull complete 
+    b86c1bc38891: Pull complete 
+    f0fc20ed043b: Pull complete 
+    82bd6c73eeca: Pull complete 
+    b9b784812863: Pull complete 
+    Digest: sha256:dfb99cac32d466013e2ef578d09f9831a9bc86043b1c453cf671c069902c75a1
+    Status: Downloaded newer image for couchdb:latest
+    docker.io/library/couchdb:latest
+    (base) smveer@Manveers-MacBook-Pro ~ % docker container run --name couchdb -d -p 5984:5984 couchdb
+    7b34473674428e2fad5cb077cb92b4bd12ceac4351a6507b93a54cf3bc14e789
+    (base) smveer@Manveers-MacBook-Pro ~ % docker ps -a
+    CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+    7b3447367442   couchdb   "tini -- /docker-ent…"   5 seconds ago   Exited (1) 5 seconds ago             couchdb
+    (base) smveer@Manveers-MacBook-Pro ~ %
     ```
 2. Check existing volumes
     ```

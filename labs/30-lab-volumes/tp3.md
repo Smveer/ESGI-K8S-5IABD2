@@ -30,6 +30,11 @@ SINGH Manveer 5IABD2
     7b3447367442   couchdb   "tini -- /docker-ent…"   5 seconds ago   Exited (1) 5 seconds ago             couchdb
     (base) smveer@Manveers-MacBook-Pro ~ %
     ```
+    Mon container s'éteint dès sa création (on a vu ensemble)
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker ps
+    CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+    ```
 2. Check existing volumes
     ```
     (base) smveer@Manveers-MacBook-Pro ~ % docker container inspect couchdb

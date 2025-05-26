@@ -10,23 +10,23 @@ SINGH Manveer 5IABD2
 2. Check existing volumes
     ```
     (base) smveer@Manveers-MacBook-Pro ~ % docker container ls -a
-CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
-b4d51d40627a   couchdb   "tini -- /docker-ent…"   7 minutes ago   Exited (1) 5 minutes ago             couchdb
-(base) smveer@Manveers-MacBook-Pro ~ % docker container inspect b4d51d40627a
-...
-        "Mounts": [
-            {
-                "Type": "volume",
-                "Name": "6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c",
-                "Source": "/var/lib/docker/volumes/6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c/_data",
-                "Destination": "/opt/couchdb/data",
-                "Driver": "local",
-                "Mode": "",
-                "RW": true,
-                "Propagation": ""
-            }
-        ],
-...
+    CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+    b4d51d40627a   couchdb   "tini -- /docker-ent…"   7 minutes ago   Exited (1) 5 minutes ago             couchdb
+    (base) smveer@Manveers-MacBook-Pro ~ % docker container inspect b4d51d40627a
+    ...
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Name": "6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c",
+                    "Source": "/var/lib/docker/volumes/6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c/_data",
+                    "Destination": "/opt/couchdb/data",
+                    "Driver": "local",
+                    "Mode": "",
+                    "RW": true,
+                    "Propagation": ""
+                }
+            ],
+    ...
     ```
    1. Why there is already a volume ?
       

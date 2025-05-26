@@ -160,8 +160,22 @@ SINGH Manveer 5IABD2
    
 ### Mount directory
 
-1. Mount `/var/lib/docker` from host to `/dck` into a busybox container 
+1. Mount `/var/lib/docker` from host to `/dck` into a busybox container
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker run -ti --name busybusy -v /var/lib/docker:/dck busybox
+    / #
+    ```
 2. Check at `ls /dck/volumes/couchdb_vol/_data` inside the container to verify that `couchdb_vol` is available
+    ```
+    / # cd /dck/
+    /dck # ls
+    buildkit    containers  engine-id   image       jfs         network     overlay2    plugins     runtimes    stats       swarm       tmp         volumes
+    /dck # cd volumes/
+    /dck/volumes # ls
+    8075ed3ad1e1a66252e037d4c1ce47469ffdcad35a8d91b7a8d7377831bc8032  couchdb_vol                                                       metadata.db
+    backingFsBlockDev                                                 f7c02951c1fa8cb828a5d1720dd35fc7f83fba0294a5222e31f1570b94993c70
+    /dck/volumes #
+    ```
 
 ### SideCar Pattern
 

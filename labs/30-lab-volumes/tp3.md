@@ -59,21 +59,21 @@ SINGH Manveer 5IABD2
       
 3. Identify the volume that is used by `couchdb`
     ```
-    (base) smveer@Manveers-MacBook-Pro ~ % docker volume inspect 6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c
+    (base) smveer@Manveers-MacBook-Pro ~ % docker volume inspect df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922
     [
         {
-            "CreatedAt": "2025-05-26T15:36:33Z",
+            "CreatedAt": "2025-05-26T16:29:49Z",
             "Driver": "local",
             "Labels": {
                 "com.docker.volume.anonymous": ""
             },
-            "Mountpoint": "/var/lib/docker/volumes/6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c/_data",
-            "Name": "6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c",
+            "Mountpoint": "/var/lib/docker/volumes/df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922/_data",
+            "Name": "df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922",
             "Options": null,
             "Scope": "local"
         }
     ]
-    (base) smveer@Manveers-MacBook-Pro ~ % 
+    (base) smveer@Manveers-MacBook-Pro ~ %
     ```
 
 4. Mount the identified volume to busybox 

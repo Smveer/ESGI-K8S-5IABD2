@@ -32,16 +32,14 @@ SINGH Manveer 5IABD2
     ```
 2. Check existing volumes
     ```
-    (base) smveer@Manveers-MacBook-Pro ~ % docker container ls -a
-    CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
-    b4d51d40627a   couchdb   "tini -- /docker-ent…"   7 minutes ago   Exited (1) 5 minutes ago             couchdb
-    (base) smveer@Manveers-MacBook-Pro ~ % docker container inspect b4d51d40627a
+    (base) smveer@Manveers-MacBook-Pro ~ % docker container inspect couchdb
     ...
+    
             "Mounts": [
                 {
                     "Type": "volume",
-                    "Name": "6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c",
-                    "Source": "/var/lib/docker/volumes/6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c/_data",
+                    "Name": "df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922",
+                    "Source": "/var/lib/docker/volumes/df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922/_data",
                     "Destination": "/opt/couchdb/data",
                     "Driver": "local",
                     "Mode": "",
@@ -49,11 +47,14 @@ SINGH Manveer 5IABD2
                     "Propagation": ""
                 }
             ],
+    
+    ...
+    (base) smveer@Manveers-MacBook-Pro ~ %
     ...
     ```
     1. Why there is already a volume ?
        ```
-       Because it was created by default when we created the container, we can also see in the docker regestry for couchdb the layer 15 is a volume set in the image
+       Because it was created by default when we created the container with couchdb image, we can also see in the docker regestry of couchdb: the layer 15 is a volume layer set in the image
        ```
       
 3. Identify the volume that is used by `couchdb`

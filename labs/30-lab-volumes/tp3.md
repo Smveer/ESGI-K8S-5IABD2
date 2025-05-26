@@ -89,9 +89,28 @@ SINGH Manveer 5IABD2
     /dsk #
     ```
 5. Check files inside `/opt/couchdb/data`
+    ```
+    Je ne peux check vu que mon container est éteint
+    ```
 6. Stop couchdb
+    ```
+    Je ne peux faire vu que mon container est déjà éteint
+    ```
 7. Delete the volume
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker rm 7b34473674428e2fad5cb077cb92b4bd12ceac4351a6507b93a54cf3bc14e789  6d6d7e8dd53c371dcd67b8b6be25a06cee8a9b3c4e40a1eb19b46687f8dc0ce6
+    6d6d7e8dd53c371dcd67b8b6be25a06cee8a9b3c4e40a1eb19b46687f8dc0ce6
+    7b34473674428e2fad5cb077cb92b4bd12ceac4351a6507b93a54cf3bc14e789
+    (base) smveer@Manveers-MacBook-Pro ~ % docker volume rm --force df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922                                                          
+    df6a89202c449163683b6000630d00d20c98f0db55c5967aa28a0f5a5d8e2922
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 8. Check that the volume has been deleted
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker volume ls 
+    DRIVER    VOLUME NAME
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 
 ### Create a named volume
 

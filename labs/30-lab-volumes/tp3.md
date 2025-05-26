@@ -180,20 +180,65 @@ SINGH Manveer 5IABD2
 ### SideCar Pattern
 
 1. Create a directory named `sidecar` with `mkdir`
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % mkdir sidecar
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 2. Run Busybox
    1. Command: `sh -c 'while true; do date >> /dck/date.log; sleep 1; done'`
    2. Volume to mount: `$(pwd)/sidecar:/dck`
    3. Name: `gen_date`
    4. State: detached
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker run --name gen_date -v $(pwd)/sidecar:/dck -d busybox sh -c 'while true; do date >> /dck/date.log; sleep 1; done'
+    0a2ae4be2c770ad9604feeee1923ced5e39a7c69aff3ab5beed8b270b0ca9b7f
+    (base) smveer@Manveers-MacBook-Pro ~ % docker ps
+    CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES
+    0a2ae4be2c77   busybox   "sh -c 'while true; …"   23 seconds ago   Up 22 seconds             gen_date
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 3. Check the content of `sidecar/date.log` with `cat`
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % cat sidecar/date.log 
+    Mon May 26 17:19:01 UTC 2025
+    ...
+    Mon May 26 17:20:33 UTC 2025
+    (base) smveer@Manveers-MacBook-Pro ~ %
+    ```
 4. Run Busybox
    1. Command: `tail -f /dck2/date.log`
    2. Volume to mount: `$(pwd)/sidecar:/dck2`
    3. State: attached
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker run --name gen_date2 -v $(pwd)/sidecar:/dck2 busybox tail -f /dck2/date.log                                        
+    Mon May 26 17:26:26 UTC 2025
+   ...
+    ^XMon May 26 17:27:34 UTC 2025
+    ^C
+    got 3 SIGTERM/SIGINTs, forcefully exiting
+    (base) smveer@Manveers-MacBook-Pro ~ %    
+    ```
 5. Check content of `dck2/date.log` with `tail -f`
+    ```
+    cant' check because already exited: got 3 SIGTERM/SIGINTs, forcefully exiting
+    ```
 6. Exit container
+    ```
+    cant' exit because already exited: got 3 SIGTERM/SIGINTs, forcefully exiting
+    ```
 7. Run `docker kill gen_date`
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker kill gen_date
+    gen_date
+    (base) smveer@Manveers-MacBook-Pro ~ % docker ps
+    CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+    0cf3f8141bd0   busybox   "tail -f /dck2/date.…"   4 minutes ago   Up 4 minutes             gen_date2
+    (base) smveer@Manveers-MacBook-Pro ~ % 
+    ```
    1. Why is the container stoped ?
+   ```
+   Because we killed it
+   ```
 
 ### In memory 
 

@@ -32,8 +32,29 @@ SINGH Manveer 5IABD2
     ...
     ```
     1. Why there is already a volume ?
+       ```
+       Because it was created by default when we created the container, we can also see in the docker regestry for couchdb the layer 15 is a volume set in the image
+       ```
       
 3. Identify the volume that is used by `couchdb`
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker volume inspect 6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c
+    [
+        {
+            "CreatedAt": "2025-05-26T15:36:33Z",
+            "Driver": "local",
+            "Labels": {
+                "com.docker.volume.anonymous": ""
+            },
+            "Mountpoint": "/var/lib/docker/volumes/6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c/_data",
+            "Name": "6fb4cbb2ea2f2e465610a10b286cb54abb535cbfcd1b2fadac9bf1dfdbfa843c",
+            "Options": null,
+            "Scope": "local"
+        }
+    ]
+    (base) smveer@Manveers-MacBook-Pro ~ % 
+    ```
+
 4. Mount the identified volume to busybox 
 5. Check files inside `/opt/couchdb/data`
 6. Stop couchdb

@@ -243,5 +243,14 @@ SINGH Manveer 5IABD2
 ### In memory 
 
 1. Run busybox with `--tmpfs /test`
-2. Check with `mount | grep test` that tmpfs is used 
+    ```
+    (base) smveer@Manveers-MacBook-Pro ~ % docker run -it --name busymemory --tmpfs /test busybox
+    / #
+    ```
+2. Check with `mount | grep test` that tmpfs is used
+    ```
+    / # mount | grep test
+    tmpfs on /test type tmpfs (rw,nosuid,nodev,noexec,relatime)
+    / #
+    ```
 
